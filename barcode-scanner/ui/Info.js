@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet, Text, View, Image, ListView, Button} from 'react-native';
 
 
-export default class Main extends React.Component {
+export default class Info extends React.Component {
   constructor() {
     super(); 
     this.state = {}
@@ -11,7 +11,7 @@ export default class Main extends React.Component {
   render() {
     return (
         <View>
-          <Text>Test to see if this works</Text> 
+          <Text>Info Page</Text> 
         </View>
     );
   }
