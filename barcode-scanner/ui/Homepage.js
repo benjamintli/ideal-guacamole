@@ -10,7 +10,7 @@ export default class Main extends React.Component {
 
   render() {
     return (
-        <View>
+        <View style = {styles.container}>
           <Text>Test to see if this works</Text> 
         </View>
     );
@@ -18,4 +18,10 @@ export default class Main extends React.Component {
 }
 
 
-const styles = StyleSheet.create({});
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 50
+  }
+});
+
