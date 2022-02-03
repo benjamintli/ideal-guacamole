@@ -7,7 +7,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Info/> 
-      <Text> Test </Text> 
       <StatusBar style="auto" />
     </View>
   );
@@ -17,7 +16,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 2,
     backgroundColor: '#fff',
-    
     width: '100%'
   },
 });
