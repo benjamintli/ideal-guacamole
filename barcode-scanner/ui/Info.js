@@ -7,50 +7,42 @@ export default class Info extends React.Component {
   constructor() {
     super(); 
     this.state = {
-      ItemName: "Cheerios",
-      ItemDescription: "Cheerios has been a family favorite for years. Its wholesome goodness is perfect for toddlers to adults and everyone in between. Made from whole grain oats, and without artificial flavors or colors, they’re naturally low in fat and cholesterol free. These wholesome little “o’s” have only one gram of sugar!",
-      Diet = { 
-        DietName: "Vegan",
-        DietDescription: "Whole Grain Oats, Corn Starch, Sugar, Salt, "
+      
+        key: '1', name: 'Cheerios', img: require('../assets/Cheerios.png'), description:'Cheerios has been a family favorite for years. Its wholesome goodness is perfect for toddlers to adults and everyone in between. Made from whole grain oats, and without artificial flavors or colors, they’re naturally low in fat and cholesterol free. These wholesome little “o’s” have only one gram of sugar!',
+        diet: [
+          { key: 0, name: "Halal", ingredients: "No Haram Ingredients" },
+          { key: 1, name: "Vegan", ingredients: "No Animal Based Products" }
+
+        ]
       }
-    }
   }
 
   render() {
     return (
       <View style = {styles.main}> 
         <View style = {styles.container}>
-        <Text style = {styles.headerStyle}>{this.state.ItemName}</Text>
+        <Text style = {styles.headerStyle}>{this.state.name}</Text>
         </View>
         <View style={{flex: 2}}>
         <View style={styles.imgRow}> 
           <View style={styles.imgLocation}> 
-            <Image style = {styles.image} source={require('../assets/Cheerios.png')}/>
+            <Image style = {styles.image} source={this.state.img}/>
           </View>
           <View style = {styles.Infoholder}>
-            <Text>{this.state.ItemDescription}</Text>
+            <Text>{this.state.description}</Text>
           </View>
         </View>
         </View> 
         <View style={{flex: 3}} >
-          <View style = {styles.restrictionHeader}>
-            <Text style = {styles.dietHeader}>Halal</Text>
+        <FlatList
+                    data={this.state.diet}
+                    renderItem={({ item }) =><View>
+                        <View style = {styles.restrictionHeader}>
+            <Text style = {styles.dietHeader}>{item.name}</Text>
           </View>
           <View style = {styles.restrictionItems}>
-            <Text>Whole Grain Oats, Corn Starch, Sugar, Salt, Tripotassium Phosphate. Vitamin E (mixed tocopherols) Added to Preserve Freshness.</Text>
-          </View>
-          <View style = {styles.restrictionHeader}>
-            <Text style = {styles.dietHeader}>Vegan</Text>
-          </View>
-          <View style = {styles.restrictionItems}>
-            <Text>Whole Grain Oats, Corn Starch, Sugar, Salt, Tripotassium Phosphate. Vitamin E (mixed tocopherols) Added to Preserve Freshness.</Text>
-          </View>
-          <View style = {styles.restrictionHeader}>
-            <Text style = {styles.dietHeader}>Dairy</Text>
-          </View>
-          <View style = {styles.restrictionItems}>
-            <Text>Whole Grain Oats, Corn Starch, Sugar, Salt, Tripotassium Phosphate. Vitamin E (mixed tocopherols) Added to Preserve Freshness.</Text>
-          </View>
+            <Text>{item.ingredients}</Text>
+          </View></View>} />
         </View>
       </View>
     );
