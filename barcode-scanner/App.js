@@ -4,6 +4,7 @@ import Main from './ui/Homepage.js';
 import Info from './ui/Info.js';
 import History from './ui/History.js';
 import Scanner from './scanner/Scanner.js';
+import Settings from './ui/Settings.js';
 
 export default function App() {
   return (
