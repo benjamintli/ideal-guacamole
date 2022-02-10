@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList,Picker, StyleSheet, Text, View, TouchableOpacityBase } from 'react-native';
+import { FlatList,Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Checkbox } from 'react-native-paper';
 
 
@@ -49,10 +49,12 @@ export default class Settings extends React.Component {
       <FlatList
         data={this.state.diet}
         renderItem={({ item }) =>
-        <View style = {styles.dietView}><Text style = {styles.dietHeader}>{item.key}</Text><View style= {styles.checkBox}><Checkbox
-        style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
-        status={item.checked ? 'checked' : 'unchecked'}
-        onPress={() => {this.setState({diet :updateCheck(item, this.state.diet)})}}/></View></View> }
+        <View style = {styles.dietView}><Text style = {styles.dietHeader}>{item.key}</Text><View style= {styles.checkBox}>
+        <TouchableOpacity
+        style = {styles.button}
+        onPress={() => {this.setState({diet :updateCheck(item, this.state.diet)})}}>
+        <Text style = {styles.buttonText}>{item.checked ? "Disable" : "Enable"}</Text></TouchableOpacity>
+        </View></View> }
         />
       
       </View>
@@ -62,7 +64,7 @@ export default class Settings extends React.Component {
 }
 
 const updateCheck = (item,diet) => { 
-    newArray = diet;
+    let newArray = diet;
     newArray[item.id].checked = !newArray[item.id].checked;
     return newArray; 
 }
@@ -111,13 +113,14 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   checkBox:{
-    flex: 3,
+    flex: 4,
     borderWidth: 1,
-    textAlign: 'right'
+    textAlign: 'right',
+    justifyContent: 'center',
   },
   dietHeader:{
     padding: 5,
-    fontSize: 15,
+    fontSize: 20,
     fontWeight: '100',
   },
   dietInfo: {
@@ -127,4 +130,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: '100',
   },
+  buttonText :{
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontSize: 22,
+  }
 });

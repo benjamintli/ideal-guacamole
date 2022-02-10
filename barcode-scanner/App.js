@@ -11,7 +11,8 @@ export default function App() {
     <View style={styles.container}>
       {/* <History/> 
       <StatusBar style="auto" /> */}
-      <Scanner></Scanner>
+      {/*<Scanner></Scanner>*/}
+      <Settings/>
     </View>
   );
 }
