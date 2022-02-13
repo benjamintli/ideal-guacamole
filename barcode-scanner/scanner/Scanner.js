@@ -30,15 +30,10 @@ export default class BarcodeScanner extends React.Component {
 
     if (barcodeData === null) {
       return (
-        <View>
           <BarCodeScanner
             onBarCodeScanned={this.handleBarCodeScanned}
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
+            style={{flex: 1}}
           />
-        </View>
       );
     } else {
       return (
